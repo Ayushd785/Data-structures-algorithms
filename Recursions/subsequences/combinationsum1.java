@@ -6,23 +6,23 @@ public class combinationsum1 {
         int [] arr = {2,3,5,7};
         int target = 7;
         List<Integer> temp = new ArrayList<>();
-        HashSet<List<Integer>>st = new HashSet<>();
-        solve(0,0,arr,temp,st,target);
-        System.out.println(st);
+        List<List<Integer>> ans = new ArrayList<>();
+        solve(0, target, temp, ans, arr);
+        System.out.println(ans);
     }
-    static void solve(int i, int sum, int [] arr, List<Integer> temp,HashSet<List<Integer>>st,int target){
-        if(sum==target){
-            st.add(new ArrayList<>(temp));
+    static void solve(int i, int target, List<Integer> temp, List<List<Integer>> ans, int[] arr){
+        if(target==0){
+            ans.add(new ArrayList<>(temp));
             return;
         }
-        if(i>=arr.length || sum>target){
+        if(i>=arr.length|| target<0){
             return;
         }
-        // take
+        // take and stay
         temp.add(arr[i]);
-        solve(i+1, sum+arr[i], arr, temp, st, target);
-        // not take
+        solve(i, target-arr[i], temp, ans, arr);
+        // not take and move to next 
         temp.remove(temp.size()-1);
-        solve(i+1, sum, arr, temp, st, target);
+        solve(i+1, target, temp, ans, arr);
     }
 }
