@@ -1,3 +1,4 @@
+package basics;
 public class sumOfNtoOne {
     public static void main(String[] args) {
         int n = 5;
