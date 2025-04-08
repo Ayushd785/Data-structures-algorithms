@@ -16,7 +16,7 @@ public class combinationsum3 {
             }
             return;
         }
-        for(int j = i;j<9;j++){
+        for(int j = i;j<=9;j++){
             if(j>n) break;
             temp.add(j);
             solve(j+1, n-j, k, temp, ans);
