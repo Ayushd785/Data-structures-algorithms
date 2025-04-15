@@ -2,7 +2,7 @@ package AdvancedBacktracking;
 import java.util.*;
 public class Nqueens {
     public static void main(String[] args) {
-        int n = 4;
+        int n = 5;
         List<List<String>> ans = new ArrayList<>();
         char [][] board = new char[n][n];
         for(int i = 0;i<n;i++){
